@@ -1,0 +1,4 @@
+<FilesMatch "(database\.php|config\.php|connect\.php)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
