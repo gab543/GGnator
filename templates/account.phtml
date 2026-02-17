@@ -1,0 +1,16 @@
+<h1><?= htmlspecialchars($_SESSION['user']['username']) ?></h1>
+
+<div>
+    <h2>Historique des parties</h2>
+    <?php if (empty($history)): ?>
+        <p>Aucune partie jouée pour le moment.</p>
+    <?php else: ?>
+        <ul>
+            <?php foreach ($history as $entry): ?>
+                <li>
+                    Joué le <?= date('d/m/Y H:i', strtotime($entry['played_at'])) ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>

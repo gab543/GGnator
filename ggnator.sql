@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 16 fév. 2026 à 11:29
+-- Généré le : mar. 17 fév. 2026 à 10:07
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -88,6 +88,15 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `register_date`) VALUES
+(1, 'user crud', 'gabcab1002@gmail.com', '$2y$10$DkoIB8ehZoowzyhiAtzuu.IWx8.yM/r6dzBXbzt1keLEbtmy.qzu6', '2026-02-17'),
+(2, 'Gab', 'GABCAB10022008@gmail.com', '$2y$10$JalaqhuSrfodQ5LaXrba2ebAgtcXPg9mmbDl8FtP4qcxjqr1KAAWq', '2026-02-17'),
+(3, 'gabriel', 'gabriel@gmail.com', '$2y$10$I2Q.E.kLp5dZlCN9FUTOju1ngvs6LHb/w3pMAAkil1qB5taH51PPe', '2026-02-17');
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -151,7 +160,7 @@ ALTER TABLE `result`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
@@ -169,7 +178,8 @@ ALTER TABLE `game`
 --
 ALTER TABLE `response`
   ADD CONSTRAINT `response_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`),
-  ADD CONSTRAINT `response_ibfk_2` FOREIGN KEY (`result_id`) REFERENCES `result` (`id`);
+  ADD CONSTRAINT `response_ibfk_2` FOREIGN KEY (`result_id`) REFERENCES `result` (`id`),
+  ADD CONSTRAINT `response_ibfk_3` FOREIGN KEY (`next_question_id`) REFERENCES `questions` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

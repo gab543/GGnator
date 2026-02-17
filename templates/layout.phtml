@@ -13,12 +13,12 @@
         <a href="index.php">Accueil</a>
 
         <nav>
-            <?php if (isAuthenticated()): ?>
+            <?php if (isConnected()): ?>
                 <a href="account.php">Mon compte</a>
                 <a href="logout.php">Déconnexion</a>
             <?php else: ?>
                 <a href="login.php">Connexion</a>
-                <a href="signup.php">Inscription</a>
+                <a href="register.php">Inscription</a>
             <?php endif; ?>
 
         </nav>

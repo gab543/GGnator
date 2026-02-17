@@ -1,7 +1,7 @@
 <img id="akinator" src="assets/images/akinator.png" alt="Akinator">
 <h1>Akinator</h1>
 <p>
-    <?php if (isAuthenticated()): ?>
+    <?php if (isConnected()): ?>
         <a href="quiz.php" class="btn">Commencer le jeu</a>
     <?php else: ?>
         <a href="login.php" class="btn">Connectez-vous</a>
