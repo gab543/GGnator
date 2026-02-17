@@ -83,12 +83,11 @@ function getResultById($id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-// Game queries
 function saveGame($userId, $resultId)
 {
     $pdo = getConnection();
-    $stmt = $pdo->prepare('INSERT INTO game (date, user_id, result_id) VALUES (?, ?, ?)');
-    $stmt->execute([date('Y-m-d'), $userId, $resultId]);
+    $stmt = $pdo->prepare('INSERT INTO game (user_id, result_id) VALUES (?, ?)');
+    $stmt->execute([$userId, $resultId]);
 }
 
 function getUserGames($userId)

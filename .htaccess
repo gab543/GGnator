@@ -1,4 +1,4 @@
-<FilesMatch "(database\.php|config\.php|connect\.php)">
+<FilesMatch "(utils|templates|logout\.php|database\.php)">
     Order Allow,Deny
     Deny from all
 </FilesMatch>

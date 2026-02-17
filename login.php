@@ -26,8 +26,7 @@ if (isset($_POST['email'], $_POST['password'])) {
             $error = 'Email ou mot de passe incorrect.';
         } else {
             login($user);
-            header('Location: index.php');
-            exit;
+            redirect('index.php');
         }
     }
 }

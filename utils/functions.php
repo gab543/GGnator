@@ -5,7 +5,7 @@ function isConnected()
     return isset($_SESSION['user']);
 }
 
-function login(array $user): void
+function login(array $user)
 {
     $_SESSION['user'] = [
         'id' => $user['id'],
