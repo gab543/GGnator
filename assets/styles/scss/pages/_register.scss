@@ -1,11 +1,14 @@
 @import '../abstracts/variables';
 
-main {
+.register {
     padding: $spacing-lg;
+    h1 {
+        margin: 0;
+    }
 
-    > p {
+    p {
         max-width: 400px;
-        margin: 0 auto $spacing-base;
+        margin: 15px;
         text-align: center;
 
         &[style*="color: red"] {
@@ -18,25 +21,21 @@ main {
     }
 
     form {
+        text-align: left;
         max-width: 400px;
         margin: 0 auto;
-
-        h1 {
-            margin-bottom: $spacing-lg;
-        }
 
         label {
             display: block;
             margin-bottom: $spacing-xs;
             font-weight: $font-weight-semibold;
-            color: $color-gray-dark;
+            color: $color-white;
         }
 
         input {
             width: 100%;
             padding: $spacing-sm $spacing-base;
             margin-bottom: $spacing-base;
-            border: $border-width solid $border-color;
             border-radius: $border-radius-sm;
             font-size: $font-size-base;
             @include transition(border-color, box-shadow);
@@ -48,7 +47,7 @@ main {
             }
         }
 
-        button {
+        .submit {
             width: 100%;
             padding: $spacing-base;
             background-color: $color-primary;

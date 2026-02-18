@@ -7,27 +7,27 @@
 
 <div class="glassmorphism-container">
     <?php if (isset($result)): ?>
+        <div class="result">
+            <h2><?= htmlspecialchars($result['name']) ?></h2>
+            <p><?= htmlspecialchars($result['description']) ?></p>
 
-        <h2><?= htmlspecialchars($result['name']) ?></h2>
-        <p><?= htmlspecialchars($result['description']) ?></p>
+            <?php if ($result['image']): ?>
+                <img src="./assets/images/games/<?= htmlspecialchars($result['image']) ?>"
+                    alt="<?= htmlspecialchars($result['name']) ?>">
+            <?php endif; ?>
 
-        <?php if ($result['image']): ?>
-            <img src="./assets/images/games/<?= htmlspecialchars($result['image']) ?>"
-                alt="<?= htmlspecialchars($result['name']) ?>">
-        <?php endif; ?>
+            <p style="margin-top: 20px; font-weight: bold;">Est-ce bien celui auquel tu pensais ?</p>
 
-        <p style="margin-top: 20px; font-weight: bold;">Est-ce bien celui auquel tu pensais ?</p>
+            <form method="POST" style="display: flex; gap: 10px;">
+                <input type="hidden" name="game_id" value="<?= $gameId ?>">
+                <button type="submit" class="Yes-Btn" name="confirm_win" value="yes">Oui ✓</button>
+                <button type="submit" class="No-Btn" name="confirm_win" value="no">Non ✗</button>
+            </form>
 
-        <form method="POST" style="display: flex; gap: 10px;">
-            <input type="hidden" name="game_id" value="<?= $gameId ?>">
-            <button type="submit" class="Yes-Btn" name="confirm_win" value="yes">Oui ✓</button>
-            <button type="submit" class="No-Btn" name="confirm_win" value="no">Non ✗</button>
-        </form>
-
-        <form method="POST" style="margin-top: 10px;">
-            <button type="submit">Rejouer</button>
-        </form>
-
+            <form method="POST" style="margin-top: 10px;">
+                <button type="submit">Rejouer</button>
+            </form>
+        </div>
     <?php elseif (isset($question)): ?>
 
         <img id="akinatorImg"

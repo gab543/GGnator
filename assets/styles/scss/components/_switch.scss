@@ -1,0 +1,51 @@
+.switch-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.switch-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.register-btn-full {
+    width: calc(50% - 10px) !important;
+}
+
+.register-btn{
+    grid-column-start: 1;
+    grid-column: auto;
+}
+
+.login-btn {
+    grid-column-start: 2;
+}
+
+.switch-btn {
+    position: absolute;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    border-radius: 30px;
+    top: 5px;
+    left: 5px;
+    transition: 0.4s ease;
+    z-index: 1; /* sit behind the link text */
+}
+

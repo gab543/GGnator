@@ -6,8 +6,7 @@ require_once './utils/queries.php';
 require_once './utils/tests.php';
 
 if (isConnected()) {
-    header('Location: index.php');
-    exit;
+    redirect('index.php');
 }
 
 $error = null;

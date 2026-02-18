@@ -1,12 +1,25 @@
-<form action="login.php" method="POST">
-    <h1>Connexion</h1>
+<div class="login">
+    <div class="glassmorphism-container">
+        <h1>Bienvenue</h1>
+        <p>Connectez-vous pour jouer</p>
 
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required>
+        <div class="switch-container">
+            <a class="switch-option register-btn" href="register.php">
+                Inscription
+            </a>
+            <a class="switch-option login-btn switch-btn" href="login.php">
+                Connexion
+            </a>
+        </div>
+        <form action="login.php" method="POST">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
 
-    <label for="password">Mot de passe</label>
-    <input type="password" name="password" id="password" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required>
 
-    <button type="submit">Se connecter</button>
-    <?= isset($error) ? '<p style="color: red;">' . $error . '</p>' : '' ?>
-</form>
+            <button type="submit">Se connecter</button>
+            <?= isset($error) ? '<p style="color: red;">' . $error . '</p>' : '' ?>
+        </form>
+    </div>
+</div>

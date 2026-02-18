@@ -17,7 +17,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #666;
-  background: linear-gradient(to bottom right, #581c87, #312e81, #1e3a8a);
+  background: linear-gradient(to top, #c800ff, #2681cc);
 }
 
 main {
@@ -144,7 +144,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #666;
+  color: #fff;
 }
 
 header {
@@ -210,6 +210,57 @@ button:active {
   transform: scale(0.98);
 }
 
+.switch-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.switch-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  padding: 5px 0;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.register-btn-full {
+  width: calc(50% - 10px) !important;
+}
+
+.register-btn {
+  grid-column-start: 1;
+  grid-column: auto;
+}
+
+.login-btn {
+  grid-column-start: 2;
+}
+
+.switch-btn {
+  position: absolute;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  border-radius: 30px;
+  top: 5px;
+  left: 5px;
+  transition: 0.4s ease;
+  z-index: 1; /* sit behind the link text */
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -242,23 +293,23 @@ main p a.btn:hover {
   text-decoration: none;
 }
 
-main {
+.login {
   padding: 24px;
 }
-main form {
+.login form {
   max-width: 400px;
   margin: 0 auto;
 }
-main form h1 {
+.login form h1 {
   margin-bottom: 24px;
 }
-main form label {
+.login form label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #666;
+  color: #fff;
 }
-main form input {
+.login form input {
   width: 100%;
   padding: 12px 16px;
   margin-bottom: 16px;
@@ -267,12 +318,12 @@ main form input {
   font-size: 16px;
   transition: border-color box-shadow 0s;
 }
-main form input:focus {
+.login form input:focus {
   outline: none;
   border-color: #333;
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
 }
-main form button {
+.login form button {
   width: 100%;
   padding: 16px;
   background-color: #333;
@@ -284,60 +335,60 @@ main form button {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out 0s;
 }
-main form button:hover {
+.login form button:hover {
   background-color: rgb(25.5, 25.5, 25.5);
 }
-main form button:active {
+.login form button:active {
   transform: scale(0.98);
 }
-main form p[style*="color: red"] {
+.login form p[style*="color: red"] {
   color: #f44336 !important;
   margin-top: 16px;
   text-align: center;
 }
 
-main {
+.register {
   padding: 24px;
 }
-main > p {
+.register h1 {
+  margin: 0;
+}
+.register p {
   max-width: 400px;
-  margin: 0 auto 16px;
+  margin: 15px;
   text-align: center;
 }
-main > p[style*="color: red"] {
+.register p[style*="color: red"] {
   color: #f44336 !important;
 }
-main > p[style*="color: green"] {
+.register p[style*="color: green"] {
   color: #4caf50 !important;
 }
-main form {
+.register form {
+  text-align: left;
   max-width: 400px;
   margin: 0 auto;
 }
-main form h1 {
-  margin-bottom: 24px;
-}
-main form label {
+.register form label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #666;
+  color: #fff;
 }
-main form input {
+.register form input {
   width: 100%;
   padding: 12px 16px;
   margin-bottom: 16px;
-  border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
   transition: border-color box-shadow 0s;
 }
-main form input:focus {
+.register form input:focus {
   outline: none;
   border-color: #333;
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
 }
-main form button {
+.register form .submit {
   width: 100%;
   padding: 16px;
   background-color: #333;
@@ -349,10 +400,10 @@ main form button {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out 0s;
 }
-main form button:hover {
+.register form .submit:hover {
   background-color: rgb(25.5, 25.5, 25.5);
 }
-main form button:active {
+.register form .submit:active {
   transform: scale(0.98);
 }
 
@@ -423,21 +474,21 @@ main #quizForm button:hover {
 main #quizForm button:active {
   transform: scale(0.98);
 }
-main h2 {
+main .result h2 {
   text-align: center;
   margin: 24px 0 16px;
 }
-main > p + img {
+main .result > p + img {
   display: block;
   max-width: 300px;
   height: auto;
   margin: 16px auto;
 }
-main > form:last-child {
+main .result > form:last-child {
   text-align: center;
   margin-top: 24px;
 }
-main > form:last-child button {
+main .result > form:last-child button {
   padding: 16px 24px;
   background-color: #333;
   color: #fff;
@@ -448,10 +499,10 @@ main > form:last-child button {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out 0s;
 }
-main > form:last-child button:hover {
+main .result > form:last-child button:hover {
   filter: brightness(0.9);
 }
-main > form:last-child button:active {
+main .result > form:last-child button:active {
   transform: scale(0.98);
 }
 

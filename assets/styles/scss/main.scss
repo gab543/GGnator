@@ -20,7 +20,7 @@ body {
     font-size: $font-size-base;
     line-height: $line-height-normal;
     color: $color-gray-dark;
-    background: linear-gradient(to bottom right, #581c87, #312e81, #1e3a8a);
+    background: linear-gradient(to top, #c800ff, #2681cc);
 }
 
 main {
@@ -136,6 +136,7 @@ label {
 @import './components/header';
 @import './components/footer';
 @import './components/buttons';
+@import './components/switch';
 
 @import './pages/index';
 @import './pages/login';

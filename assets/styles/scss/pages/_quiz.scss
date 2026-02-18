@@ -59,40 +59,41 @@ main {
         }
     }
 
-    // Result state
-    h2 {
-        text-align: center;
-        margin: $spacing-lg 0 $spacing-base;
-    }
+.result {
+        h2 {
+            text-align: center;
+            margin: $spacing-lg 0 $spacing-base;
+        }
 
-    >p+img {
-        display: block;
-        max-width: 300px;
-        height: auto;
-        margin: $spacing-base auto;
-    }
+        >p+img {
+            display: block;
+            max-width: 300px;
+            height: auto;
+            margin: $spacing-base auto;
+        }
 
-    >form:last-child {
-        text-align: center;
-        margin-top: $spacing-lg;
+        >form:last-child {
+            text-align: center;
+            margin-top: $spacing-lg;
 
-        button {
-            padding: $spacing-base $spacing-lg;
-            background-color: $color-primary;
-            color: $color-white;
-            border: none;
-            border-radius: $border-radius-sm;
-            font-size: $font-size-base;
-            font-weight: $font-weight-semibold;
-            cursor: pointer;
-            @include transition(background-color);
+            button {
+                padding: $spacing-base $spacing-lg;
+                background-color: $color-primary;
+                color: $color-white;
+                border: none;
+                border-radius: $border-radius-sm;
+                font-size: $font-size-base;
+                font-weight: $font-weight-semibold;
+                cursor: pointer;
+                @include transition(background-color);
 
-            &:hover {
-                filter: brightness(0.9);
-            }
+                &:hover {
+                    filter: brightness(0.9);
+                }
 
-            &:active {
-                transform: scale(0.98);
+                &:active {
+                    transform: scale(0.98);
+                }
             }
         }
     }
