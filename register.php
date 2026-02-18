@@ -26,7 +26,7 @@ if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['passwor
     } elseif (strlen($username) > 20) {
         $error = 'Le nom d\'utilisateur ne peut pas dépasser 20 caractères.';
     } elseif (!isPasswordStrong($password)) {
-        $error = 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.';
+        $error = 'Le mot de passe doit contenir au moins 7 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.';
     } else {
         if (emailExists($email)) {
             $error = 'Cette adresse email est déjà utilisée.';

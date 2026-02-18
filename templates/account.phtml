@@ -1,43 +1,80 @@
-<h1><?= htmlspecialchars($_SESSION['user']['username'] ?? 'Guest') ?></h1>
+<div class="account-page">
+    <h1 class="account-title"><?= htmlspecialchars($_SESSION['user']['username'] ?? 'Guest') ?></h1>
 
-<div>
-    <h2>Historique des parties</h2>
-    <?php if (empty($games)): ?>
-        <p>Aucune partie jouée pour le moment.</p>
-    <?php else: ?>
-        <ul>
+    <!-- Statistiques -->
+    <div class="account-section stats-container glassmorphism-container">
+        <h2 class="section-title">Statistiques</h2>
+        <div class="stats-grid">
+            <div class="stat-box glassmorphism-container">
+                <p class="stat-label">Total de parties</p>
+                <p class="stat-value"><?= $totalGames ?></p>
+            </div>
+            <div class="stat-box glassmorphism-container">
+                <p class="stat-label">Parties réussies</p>
+                <p class="stat-value"><?= $wonGames ?></p>
+            </div>
+            <div class="stat-box glassmorphism-container">
+                <p class="stat-label">Taux de réussite</p>
+                <p class="stat-value"><?= $winRate ?>%</p>
+            </div>
+        </div>
+    </div>
 
-            <?php foreach ($games as $entry): ?>
-                <li>
-                    <p>Joué le <?= htmlspecialchars($entry['date'] ?? 'Date inconnue') ?></p>
-                    <p><?= htmlspecialchars($entry['result_name'] ?? 'Résultat indisponible') ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-</div>
-<div>
-    <h2>Changer mon mot de passe</h2>
-    <p>Votre mot de passe doit contenir entre 8 et 16 lettres, avec au moins une majuscule, une minuscule, 1 chiffre et 1 caractère spécial.</p>
-        <form method="post" action="account.php">
-            <div>
-                <label for="current_password">Mot de passe actuel</label>
-                <input type="password" id="current_password" name="current_password" required>
+    <div class="account-section glassmorphism-container">
+        <h2 class="section-title">Historique des parties</h2>
+        <?php if (empty($games)): ?>
+            <p class="section-description">Aucune partie jouée pour le moment.</p>
+        <?php else: ?>
+            <ul class="games-list">
+                <?php foreach ($games as $entry): ?>
+                    <li class="game-item">
+                        <p>Joué le <?= htmlspecialchars($entry['date'] ?? 'Date inconnue') ?></p>
+                        <p><?= htmlspecialchars($entry['result_name'] ?? 'Résultat indisponible') ?></p>
+                        <p class="game-status"><?php
+                        if ($entry['win'] === null) {
+                            echo '<span style="color: gray;">Non confirmé</span>';
+                        } elseif ($entry['win']) {
+                            echo '<span style="color: green;">✓ Victoire</span>';
+                        } else {
+                            echo '<span style="color: red;">✗ Défaite</span>';
+                        }
+                        ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+
+    <div class="account-section glassmorphism-container">
+        <h2 class="section-title">Changer mon mot de passe</h2>
+        <p class="section-description">Votre mot de passe doit contenir entre 8 et 16 lettres, avec au moins une
+            majuscule, une minuscule, 1 chiffre et
+            1 caractère spécial.</p>
+        <form method="post" action="account.php" class="account-form">
+            <div class="form-group">
+                <label for="current_password" class="form-label">Mot de passe actuel</label>
+                <input type="password" id="current_password" name="current_password"
+                    class="form-input glassmorphism-container" required>
             </div>
-            <div>
-                <label for="new_password">Nouveau mot de passe</label>
-                <input type="password" id="new_password" name="new_password" required>
+            <div class="form-group">
+                <label for="new_password" class="form-label">Nouveau mot de passe</label>
+                <input type="password" id="new_password" name="new_password" class="form-input glassmorphism-container"
+                    required>
             </div>
-            <button type="submit">Changer le mot de passe</button>
+            <button type="submit" class="form-button">Changer le mot de passe</button>
         </form>
         <?php if (isset($error)): ?>
-            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+            <p class="form-error"><?= htmlspecialchars($error) ?></p>
         <?php endif; ?>
-</div>
-<div>
-    <h2>Supprimer mon compte</h2>
-    <form method="post" action="account.php">
-        <input type="hidden" name="delete_account" value="1">
-        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
-    </form>
+    </div>
+
+    <div class="account-section delete-section glassmorphism-container">
+        <h2 class="section-title">Zone dangeureuse</h2>
+        <form method="post" action="account.php" class="account-form">
+            <input type="hidden" name="delete_account" value="1">
+            <button type="submit" class="form-button delete-button"
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer
+                mon compte</button>
+        </form>
+    </div>
 </div>

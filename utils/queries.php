@@ -88,6 +88,14 @@ function saveGame($userId, $resultId)
     $pdo = getConnection();
     $stmt = $pdo->prepare('INSERT INTO game (user_id, result_id) VALUES (?, ?)');
     $stmt->execute([$userId, $resultId]);
+    return $pdo->lastInsertId();
+}
+
+function updateGameWin($gameId, $win)
+{
+    $pdo = getConnection();
+    $stmt = $pdo->prepare('UPDATE game SET win = ? WHERE id = ?');
+    $stmt->execute([$win, $gameId]);
 }
 
 function getUserGames($userId)
@@ -102,4 +110,18 @@ function getUserGames($userId)
     ');
     $stmt->execute([$userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getGameStats($userId)
+{
+    $pdo = getConnection();
+    $stmt = $pdo->prepare('
+        SELECT 
+            COUNT(*) as total_games,
+            SUM(CASE WHEN win = 1 THEN 1 ELSE 0 END) as won_games
+        FROM game 
+        WHERE user_id = ?
+    ');
+    $stmt->execute([$userId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }

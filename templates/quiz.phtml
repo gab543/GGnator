@@ -4,49 +4,44 @@
     <p style="color: red;"><?= $error ?></p>
 <?php endif; ?>
 
-<!-- Debug: question_id = <?= $_POST['question_id'] ?? 'none' ?>, answer = <?= $_POST['answer'] ?? 'none' ?> -->
 
-<?php if (isset($result)): ?>
+<div class="glassmorphism-container">
+    <?php if (isset($result)): ?>
 
-    <h2><?= htmlspecialchars($result['name']) ?></h2>
-    <p><?= htmlspecialchars($result['description']) ?></p>
+        <h2><?= htmlspecialchars($result['name']) ?></h2>
+        <p><?= htmlspecialchars($result['description']) ?></p>
 
-    <?php if ($result['image']): ?>
-        <img src="./assets/images/games/<?= htmlspecialchars($result['image']) ?>" alt="<?= htmlspecialchars($result['name']) ?>">
+        <?php if ($result['image']): ?>
+            <img src="./assets/images/games/<?= htmlspecialchars($result['image']) ?>"
+                alt="<?= htmlspecialchars($result['name']) ?>">
+        <?php endif; ?>
+
+        <p style="margin-top: 20px; font-weight: bold;">Est-ce bien celui auquel tu pensais ?</p>
+
+        <form method="POST" style="display: flex; gap: 10px;">
+            <input type="hidden" name="game_id" value="<?= $gameId ?>">
+            <button type="submit" class="Yes-Btn" name="confirm_win" value="yes">Oui ✓</button>
+            <button type="submit" class="No-Btn" name="confirm_win" value="no">Non ✗</button>
+        </form>
+
+        <form method="POST" style="margin-top: 10px;">
+            <button type="submit">Rejouer</button>
+        </form>
+
+    <?php elseif (isset($question)): ?>
+
+        <img id="akinatorImg"
+            src="./assets/images/akinator/<?php echo ['akinator.png', 'akinator_1.png', 'akinator_2.png', 'akinator_3.png'][array_rand(['a', 'b', 'c', 'd'])] ?>"
+            alt="Akinator" style="width: 200px; margin-bottom: 20px;">
+
+        <p class="question glassmorphism-container"><?= htmlspecialchars($question['question']) ?></p>
+
+        <form method="POST" id="quizForm">
+            <input type="hidden" name="question_id" value="<?= $question['id'] ?>">
+            <button class="Yes-Btn" type="submit" name="answer" value="Oui">Oui</button>
+            <button class="No-Btn" type="submit" name="answer" value="Non">Non</button>
+        </form>
+    <?php else: ?>
+        <p>Aucune question disponible.</p>
     <?php endif; ?>
-
-    <form method="POST">
-        <button type="submit">Rejouer</button>
-    </form>
-
-<?php elseif (isset($question)): ?>
-
-    <img id="akinatorImg" src="./assets/images/akinator/akinator_1.png" alt="Akinator" style="width: 200px; margin-bottom: 20px;">
-    <p><?= htmlspecialchars($question['question']) ?></p>
-
-    <form method="POST" id="quizForm">
-        <input type="hidden" name="question_id" value="<?= $question['id'] ?>">
-        <button type="submit" name="answer" value="Oui">Oui</button>
-        <button type="submit" name="answer" value="Non">Non</button>
-    </form>
-
-    <script>
-        const images = ['akinator.png', 'akinator_1.png', 'akinator_2.png', 'akinator_3.png'];
-        const quizForm = document.getElementById('quizForm');
-        const akinatorImg = document.getElementById('akinatorImg');
-
-        function getRandomImage() {
-            return images[Math.floor(Math.random() * images.length)];
-        }
-
-        quizForm.addEventListener('submit', function () {
-            const newImage = getRandomImage();
-            akinatorImg.src = `./assets/images/akinator/${newImage}`;
-        });
-
-        // Définir une image aléatoire au chargement initial
-        akinatorImg.src = `./assets/images/akinator/${getRandomImage()}`;
-    </script>
-<?php else: ?>
-    <p>Aucune question disponible.</p>
-<?php endif; ?>
+</div>

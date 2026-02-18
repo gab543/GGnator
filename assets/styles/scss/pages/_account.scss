@@ -1,41 +1,78 @@
 @import '../abstracts/variables';
 
-main {
+.account-page {
     padding: $spacing-lg;
-    max-width: 600px;
-    margin: 0 auto;
 
-    h1 {
+    .account-title {
         text-align: center;
         margin-bottom: $spacing-xl;
     }
 
-    // Sections générales
-    div {
-        background-color: $color-gray-light;
+    .account-section {
         border-radius: $border-radius-base;
         padding: $spacing-lg;
         margin-bottom: $spacing-xl;
         width: 100%;
 
-        h2 {
+        .section-title {
             margin-bottom: $spacing-base;
         }
 
-        p:first-of-type {
+        .section-description {
             margin-bottom: $spacing-base;
             font-size: $font-size-sm;
-            color: $color-gray-dark;
         }
 
-        ul {
+        .stats-container {
+            margin-bottom: $spacing-lg;
+
+            h2 {
+                text-align: center;
+                margin-bottom: $spacing-md;
+                color: white;
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: $spacing-md;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: $spacing-md;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            .stat-label {
+                font-size: $font-size-sm;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: $spacing-sm;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+                font-weight: $font-weight-bold;
+                color: #4ade80;
+                margin-bottom: 0;
+            }
+        }
+
+        .games-list {
             list-style: none;
-            li {
+            max-height: 500px;
+            overflow: auto;
+
+            .game-item {
                 @include flex-between;
                 padding: $spacing-sm 0;
                 border-bottom: $border-width solid $border-color;
 
-                p:last-of-type {
+                .game-status {
                     font-weight: $font-weight-semibold;
                     width: 25%;
                     text-align: left;
@@ -45,23 +82,23 @@ main {
         }
 
         // Forms
-        form {
-            > div {
+        .account-form {
+            .form-group {
                 margin-bottom: $spacing-base;
 
-                label {
+                .form-label {
                     display: block;
                     margin-bottom: $spacing-xs;
                     font-weight: $font-weight-semibold;
-                    color: $color-gray-dark;
+                    color: $color-white;
                 }
 
-                input {
+                .form-input {
                     width: 100%;
                     padding: $spacing-sm $spacing-base;
-                    border: $border-width solid $border-color;
                     border-radius: $border-radius-sm;
                     font-size: $font-size-base;
+                    color: $color-white;
                     @include transition(border-color, box-shadow);
 
                     &:focus {
@@ -72,7 +109,7 @@ main {
                 }
             }
 
-            button {
+            .form-button {
                 width: 100%;
                 padding: $spacing-base;
                 background-color: $color-primary;
@@ -93,23 +130,29 @@ main {
                 }
             }
 
-            p[style*="color: red"] {
+            .form-error {
                 color: $color-error !important;
                 margin-top: $spacing-base;
                 text-align: center;
             }
         }
+    }
 
-        // Delete account button styling
-        &:last-child {
-            button {
-                background-color: $color-error;
+    .delete-section {
+        border: 1px red solid;
 
-                &:hover {
-                    background-color: darken($color-error, 10%);
-                }
+        h2 {
+            margin-top: 0;
+            color: red;
+        }
+
+        .delete-button {
+            background-color: red !important;
+
+            &:hover {
+                background-color: darken($color-error, 10%);
             }
         }
     }
-}
 
+}

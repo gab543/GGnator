@@ -137,19 +137,19 @@
     padding: $spacing-sm $spacing-base;
     border-radius: $border-radius-sm;
     transition: background-color $transition-base;
-    
+
     &:hover {
         background-color: darken($bg, 10%);
     }
-    
+
     &:active {
         transform: scale(0.98);
     }
-    
+
     &:disabled {
         opacity: 0.5;
         cursor: not-allowed;
-        
+
         &:hover {
             background-color: $bg;
         }
@@ -168,13 +168,13 @@
     font-size: $font-size-base;
     font-family: $font-family-base;
     transition: all $transition-base;
-    
+
     &:focus {
         outline: none;
         border-color: $color-primary;
         box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
     }
-    
+
     &:disabled {
         background-color: $color-gray-light;
         cursor: not-allowed;
@@ -240,31 +240,37 @@
 // ============================================
 
 @mixin margin($top: null, $right: null, $bottom: null, $left: null) {
-    @if $top != null {
+    @if $top !=null {
         margin-top: $top;
     }
-    @if $right != null {
+
+    @if $right !=null {
         margin-right: $right;
     }
-    @if $bottom != null {
+
+    @if $bottom !=null {
         margin-bottom: $bottom;
     }
-    @if $left != null {
+
+    @if $left !=null {
         margin-left: $left;
     }
 }
 
 @mixin padding($top: null, $right: null, $bottom: null, $left: null) {
-    @if $top != null {
+    @if $top !=null {
         padding-top: $top;
     }
-    @if $right != null {
+
+    @if $right !=null {
         padding-right: $right;
     }
-    @if $bottom != null {
+
+    @if $bottom !=null {
         padding-bottom: $bottom;
     }
-    @if $left != null {
+
+    @if $left !=null {
         padding-left: $left;
     }
 }
@@ -274,15 +280,23 @@
 // ============================================
 
 @mixin shadow($level: base) {
-    @if $level == sm {
+    @if $level ==sm {
         box-shadow: $shadow-sm;
-    } @else if $level == base {
+    }
+
+    @else if $level ==base {
         box-shadow: $shadow-base;
-    } @else if $level == md {
+    }
+
+    @else if $level ==md {
         box-shadow: $shadow-md;
-    } @else if $level == lg {
+    }
+
+    @else if $level ==lg {
         box-shadow: $shadow-lg;
-    } @else if $level == xl {
+    }
+
+    @else if $level ==xl {
         box-shadow: $shadow-xl;
     }
 }
@@ -305,8 +319,8 @@
     position: relative;
     padding-bottom: percentage($height / $width);
     height: 0;
-    
-    > * {
+
+    >* {
         position: absolute;
         top: 0;
         left: 0;
@@ -319,12 +333,12 @@
 // ANIMATION MIXINS
 // ============================================
 
-@mixin animation($name, $duration: $transition-base, $timing: $ease-in-out, $delay: 0s) {
-    animation: $name $duration $timing $delay;
+@mixin animation($name, $duration: $transition-base, $delay: 0s) {
+    animation: $name $duration $delay;
 }
 
-@mixin transition($properties: all, $duration: $transition-base, $timing: $ease-in-out, $delay: 0s) {
-    transition: $properties $duration $timing $delay;
+@mixin transition($properties: all, $duration: $transition-base, $delay: 0s) {
+    transition: $properties $duration $delay;
 }
 
 // ============================================

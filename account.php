@@ -11,7 +11,13 @@ if (!isConnected()) {
 
 $userId = $_SESSION['user']['id'];
 $games = getUserGames($userId);
+$stats = getGameStats($userId);
 $error = null;
+
+// Calculer le taux de réussite
+$totalGames = (int) $stats['total_games'];
+$wonGames = (int) ($stats['won_games'] ?? 0);
+$winRate = $totalGames > 0 ? round(($wonGames / $totalGames) * 100, 2) : 0;
 
 
 try {
@@ -30,7 +36,7 @@ try {
             }
         }
     }
-} catch (Exception $e) {   
+} catch (Exception $e) {
     $error = 'Une erreur est survenue lors de la mise à jour du mot de passe.';
 }
 
@@ -38,16 +44,15 @@ try {
 try {
     if (isset($_POST['delete_account'])) {
         $pdo = getConnection();
-        
+
         $stmt = $pdo->prepare('DELETE FROM game WHERE user_id = ?');
         $stmt->execute([$userId]);
-        
+
         $stmt = $pdo->prepare('DELETE FROM users WHERE id = ?');
         $stmt->execute([$userId]);
         redirect('logout.php');
     }
-} 
-catch (Exception $e) {
+} catch (Exception $e) {
     $error = 'Une erreur est survenue lors de la suppression du compte.';
 }
 

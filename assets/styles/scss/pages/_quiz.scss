@@ -3,11 +3,20 @@
 main {
     padding: $spacing-lg;
 
+
+    .Yes-Btn {
+        background-color: #096;
+    }
+
+    .No-Btn {
+        background-color: #ec003f;
+    }
+
     h1 {
         margin-bottom: $spacing-lg;
     }
 
-    > p[style*="color: red"] {
+    >p[style*="color: red"] {
         color: $color-error !important;
         text-align: center;
         margin-bottom: $spacing-base;
@@ -23,32 +32,25 @@ main {
         animation: fadeIn 0.5s ease-in-out;
     }
 
-    > p:not([style]) {
-        text-align: center;
-        font-size: $font-size-md;
-        margin-bottom: $spacing-lg;
+    .question {
+        font-size: 1.5rem;
+        margin-bottom: 1em;
     }
 
     #quizForm {
-        @include flex-center;
+        @include grid(2);
         gap: $spacing-base;
-        flex-wrap: wrap;
-        margin-bottom: $spacing-lg;
 
         button {
-            min-width: 120px;
-            padding: $spacing-base $spacing-lg;
-            background-color: $color-primary;
-            color: $color-white;
+            @include input-base;
+            @include transition();
             border: none;
-            border-radius: $border-radius-sm;
-            font-size: $font-size-base;
-            font-weight: $font-weight-semibold;
-            cursor: pointer;
-            @include transition(background-color);
+            padding: 20px;
+            border-radius: 15px;
 
             &:hover {
-                background-color: darken($color-primary, 10%);
+                filter: brightness(0.9);
+                scale: 1.05;
             }
 
             &:active {
@@ -63,14 +65,14 @@ main {
         margin: $spacing-lg 0 $spacing-base;
     }
 
-    > p + img {
+    >p+img {
         display: block;
         max-width: 300px;
         height: auto;
         margin: $spacing-base auto;
     }
 
-    > form:last-child {
+    >form:last-child {
         text-align: center;
         margin-top: $spacing-lg;
 
@@ -86,7 +88,7 @@ main {
             @include transition(background-color);
 
             &:hover {
-                background-color: darken($color-primary, 10%);
+                filter: brightness(0.9);
             }
 
             &:active {
@@ -101,9 +103,9 @@ main {
         opacity: 0;
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
-

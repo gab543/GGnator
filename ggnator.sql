@@ -31,7 +31,8 @@ CREATE TABLE `game` (
   `id` int(10) NOT NULL,
   `date` date NOT NULL,
   `user_id` int(10) NOT NULL,
-  `result_id` int(10) NOT NULL
+  `result_id` int(10) NOT NULL,
+  `win` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
