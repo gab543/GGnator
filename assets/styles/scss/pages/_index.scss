@@ -1,0 +1,37 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+main {
+    @include flex-column-center;
+    gap: $spacing-lg;
+
+    h1 {
+        margin-bottom: $spacing-base;
+    }
+
+    img#akinator {
+        width: 250px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    p {
+        margin-bottom: 0;
+
+        a.btn {
+            display: inline-block;
+            padding: $spacing-base $spacing-lg;
+            background-color: $color-primary;
+            color: $color-white;
+            border-radius: $border-radius-base;
+            font-weight: $font-weight-semibold;
+            @include transition(background-color, $transition-base);
+
+            &:hover {
+                background-color: darken($color-primary, 10%);
+                text-decoration: none;
+            }
+        }
+    }
+}
+

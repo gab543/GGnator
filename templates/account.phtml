@@ -1,4 +1,4 @@
-<h1><?= htmlspecialchars($_SESSION['user']['username']) ?></h1>
+<h1><?= htmlspecialchars($_SESSION['user']['username'] ?? 'Guest') ?></h1>
 
 <div>
     <h2>Historique des parties</h2>
@@ -6,9 +6,11 @@
         <p>Aucune partie jouée pour le moment.</p>
     <?php else: ?>
         <ul>
+
             <?php foreach ($games as $entry): ?>
                 <li>
-                    Joué le <?= date('d/m/Y H:i', strtotime($entry['date'])) ?>
+                    <p>Joué le <?= htmlspecialchars($entry['date'] ?? 'Date inconnue') ?></p>
+                    <p><?= htmlspecialchars($entry['result_name'] ?? 'Résultat indisponible') ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>

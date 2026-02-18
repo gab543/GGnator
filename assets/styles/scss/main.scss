@@ -1,0 +1,95 @@
+// Import abstracts
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    @include flex-column;
+    min-height: 100vh;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    color: $color-gray-dark;
+    background-color: $color-white;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-headings;
+    line-height: $line-height-tight;
+    margin-bottom: $spacing-md;
+}
+
+h1 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+}
+
+h2 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+}
+
+h3 {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+}
+
+p {
+    margin-bottom: $spacing-base;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+    @include transition(color);
+    
+    &:hover {
+        color: darken($color-primary, 20%);
+        text-decoration: underline;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+input, textarea, select {
+    @include input-base;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+label {
+    @include label-base;
+}
+
+@import './components/header';
+@import './components/footer';
+@import './components/buttons';
+
+@import './pages/index';
+@import './pages/login';
+@import './pages/register';
+@import './pages/quiz';
+@import './pages/account';

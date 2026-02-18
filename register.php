@@ -3,6 +3,7 @@ session_start();
 
 require_once './utils/functions.php';
 require_once './utils/queries.php';
+require_once './utils/tests.php';
 
 if (isConnected()) {
     header('Location: index.php');

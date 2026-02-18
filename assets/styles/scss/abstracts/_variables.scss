@@ -1,0 +1,124 @@
+// ============================================
+// COLOR PALETTE
+// ============================================
+
+// Primary colors
+$color-primary: #333;
+$color-primary-dark: #1a1a1a;
+$color-primary-light: #555;
+
+// Neutral colors
+$color-white: #fff;
+$color-black: #000;
+$color-gray-light: #f9f9f9;
+$color-gray-medium: #ddd;
+$color-gray-dark: #666;
+
+// Semantic colors
+$color-success: #4caf50;
+$color-warning: #ff9800;
+$color-error: #f44336;
+$color-info: #2196f3;
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Font family
+$font-family-base: 'Arial', sans-serif;
+$font-family-headings: 'Arial', sans-serif;
+$font-family-monospace: 'Courier New', monospace;
+
+// Font sizes
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-md: 18px;
+$font-size-lg: 24px;
+$font-size-xl: 36px;
+$font-size-xxl: 48px;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// ============================================
+// SPACING (8px base unit)
+// ============================================
+
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-base: 16px;
+$spacing-md: 20px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 40px;
+$spacing-3xl: 48px;
+
+// ============================================
+// BORDERS & RADIUS
+// ============================================
+
+$border-radius-sm: 4px;
+$border-radius-base: 8px;
+$border-radius-lg: 12px;
+$border-radius-full: 50%;
+
+$border-width: 1px;
+$border-color: $color-gray-medium;
+
+// ============================================
+// SHADOWS
+// ============================================
+
+$shadow-sm: 0 1px 2px rgba($color-black, 0.05);
+$shadow-base: 0 4px 6px rgba($color-black, 0.1);
+$shadow-md: 0 10px 15px rgba($color-black, 0.1);
+$shadow-lg: 0 20px 25px rgba($color-black, 0.1);
+$shadow-xl: 0 25px 50px rgba($color-black, 0.2);
+
+// ============================================
+// TRANSITIONS & ANIMATIONS
+// ============================================
+
+$transition-fast: 0.15s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+$ease-linear: linear;
+$ease-in: ease-in;
+$ease-out: ease-out;
+$ease-in-out: ease-in-out;
+$ease-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+
+// ============================================
+// BREAKPOINTS (Mobile First)
+// ============================================
+
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// ============================================
+// Z-INDEX SCALE
+// ============================================
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+

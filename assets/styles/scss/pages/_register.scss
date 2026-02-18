@@ -1,0 +1,73 @@
+@import '../abstracts/variables';
+
+main {
+    padding: $spacing-lg;
+
+    > p {
+        max-width: 400px;
+        margin: 0 auto $spacing-base;
+        text-align: center;
+
+        &[style*="color: red"] {
+            color: $color-error !important;
+        }
+
+        &[style*="color: green"] {
+            color: $color-success !important;
+        }
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+
+        h1 {
+            margin-bottom: $spacing-lg;
+        }
+
+        label {
+            display: block;
+            margin-bottom: $spacing-xs;
+            font-weight: $font-weight-semibold;
+            color: $color-gray-dark;
+        }
+
+        input {
+            width: 100%;
+            padding: $spacing-sm $spacing-base;
+            margin-bottom: $spacing-base;
+            border: $border-width solid $border-color;
+            border-radius: $border-radius-sm;
+            font-size: $font-size-base;
+            @include transition(border-color, box-shadow);
+
+            &:focus {
+                outline: none;
+                border-color: $color-primary;
+                box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: $spacing-base;
+            background-color: $color-primary;
+            color: $color-white;
+            border: none;
+            border-radius: $border-radius-sm;
+            font-size: $font-size-base;
+            font-weight: $font-weight-semibold;
+            cursor: pointer;
+            @include transition(background-color);
+
+            &:hover {
+                background-color: darken($color-primary, 10%);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+}
+

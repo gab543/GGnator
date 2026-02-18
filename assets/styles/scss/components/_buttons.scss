@@ -1,0 +1,20 @@
+@import '../abstracts/variables';
+
+button {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $spacing-base;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color $transition-base;
+    font-size: $font-size-base;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}

@@ -1,0 +1,109 @@
+@import '../abstracts/variables';
+
+main {
+    padding: $spacing-lg;
+
+    h1 {
+        margin-bottom: $spacing-lg;
+    }
+
+    > p[style*="color: red"] {
+        color: $color-error !important;
+        text-align: center;
+        margin-bottom: $spacing-base;
+    }
+
+    // Question state
+    #akinatorImg {
+        display: block;
+        width: 200px;
+        height: auto;
+        margin: 0 auto $spacing-lg;
+        object-fit: contain;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    > p:not([style]) {
+        text-align: center;
+        font-size: $font-size-md;
+        margin-bottom: $spacing-lg;
+    }
+
+    #quizForm {
+        @include flex-center;
+        gap: $spacing-base;
+        flex-wrap: wrap;
+        margin-bottom: $spacing-lg;
+
+        button {
+            min-width: 120px;
+            padding: $spacing-base $spacing-lg;
+            background-color: $color-primary;
+            color: $color-white;
+            border: none;
+            border-radius: $border-radius-sm;
+            font-size: $font-size-base;
+            font-weight: $font-weight-semibold;
+            cursor: pointer;
+            @include transition(background-color);
+
+            &:hover {
+                background-color: darken($color-primary, 10%);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+
+    // Result state
+    h2 {
+        text-align: center;
+        margin: $spacing-lg 0 $spacing-base;
+    }
+
+    > p + img {
+        display: block;
+        max-width: 300px;
+        height: auto;
+        margin: $spacing-base auto;
+    }
+
+    > form:last-child {
+        text-align: center;
+        margin-top: $spacing-lg;
+
+        button {
+            padding: $spacing-base $spacing-lg;
+            background-color: $color-primary;
+            color: $color-white;
+            border: none;
+            border-radius: $border-radius-sm;
+            font-size: $font-size-base;
+            font-weight: $font-weight-semibold;
+            cursor: pointer;
+            @include transition(background-color);
+
+            &:hover {
+                background-color: darken($color-primary, 10%);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+

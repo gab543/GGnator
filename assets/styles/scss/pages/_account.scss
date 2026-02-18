@@ -1,0 +1,115 @@
+@import '../abstracts/variables';
+
+main {
+    padding: $spacing-lg;
+    max-width: 600px;
+    margin: 0 auto;
+
+    h1 {
+        text-align: center;
+        margin-bottom: $spacing-xl;
+    }
+
+    // Sections générales
+    div {
+        background-color: $color-gray-light;
+        border-radius: $border-radius-base;
+        padding: $spacing-lg;
+        margin-bottom: $spacing-xl;
+        width: 100%;
+
+        h2 {
+            margin-bottom: $spacing-base;
+        }
+
+        p:first-of-type {
+            margin-bottom: $spacing-base;
+            font-size: $font-size-sm;
+            color: $color-gray-dark;
+        }
+
+        ul {
+            list-style: none;
+            li {
+                @include flex-between;
+                padding: $spacing-sm 0;
+                border-bottom: $border-width solid $border-color;
+
+                p:last-of-type {
+                    font-weight: $font-weight-semibold;
+                    width: 25%;
+                    text-align: left;
+                    border-bottom: none;
+                }
+            }
+        }
+
+        // Forms
+        form {
+            > div {
+                margin-bottom: $spacing-base;
+
+                label {
+                    display: block;
+                    margin-bottom: $spacing-xs;
+                    font-weight: $font-weight-semibold;
+                    color: $color-gray-dark;
+                }
+
+                input {
+                    width: 100%;
+                    padding: $spacing-sm $spacing-base;
+                    border: $border-width solid $border-color;
+                    border-radius: $border-radius-sm;
+                    font-size: $font-size-base;
+                    @include transition(border-color, box-shadow);
+
+                    &:focus {
+                        outline: none;
+                        border-color: $color-primary;
+                        box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: $spacing-base;
+                background-color: $color-primary;
+                color: $color-white;
+                border: none;
+                border-radius: $border-radius-sm;
+                font-size: $font-size-base;
+                font-weight: $font-weight-semibold;
+                cursor: pointer;
+                @include transition(background-color);
+
+                &:hover {
+                    background-color: darken($color-primary, 10%);
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+
+            p[style*="color: red"] {
+                color: $color-error !important;
+                margin-top: $spacing-base;
+                text-align: center;
+            }
+        }
+
+        // Delete account button styling
+        &:last-child {
+            button {
+                background-color: $color-error;
+
+                &:hover {
+                    background-color: darken($color-error, 10%);
+                }
+            }
+        }
+    }
+}
+
