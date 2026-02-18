@@ -1,0 +1,5 @@
+prblm de deconnexion
+
+refactor l'archi (vrm pas bo)
+
+dump la db pour rendre le projet (enlever les comptes existant)
