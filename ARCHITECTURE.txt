@@ -1,0 +1,51 @@
+Architecture du projet - sprint-akinator
+
+./
+├─ account.php
+├─ database.php
+├─ ggnator.sql
+├─ index.php
+├─ login.php
+├─ logout.php
+├─ quiz.php
+├─ README.md
+├─ register.php
+├─ assets/
+│  ├─ images/
+│  │  ├─ akinator/
+│  │  └─ games/
+│  └─ styles/
+│     ├─ css/
+│     │  └─ main.css
+│     └─ scss/
+│        ├─ main.scss
+│        ├─ abstracts/
+│        │  ├─ _mixins.scss
+│        │  └─ _variables.scss
+│        ├─ components/
+│        │  ├─ _buttons.scss
+│        │  ├─ _footer.scss
+│        │  ├─ _header.scss
+│        │  └─ _switch.scss
+│        └─ pages/
+│           ├─ _account.scss
+│           ├─ _index.scss
+│           ├─ _login.scss
+│           ├─ _quiz.scss
+│           └─ _register.scss
+├─ docs/
+│  ├─ arbreDeVerité.dio
+│  ├─ MCD.dio
+│  ├─ MLD.dio
+│  └─ MPD.dio
+├─ templates/
+│  ├─ account.phtml
+│  ├─ index.phtml
+│  ├─ layout.phtml
+│  ├─ login.phtml
+│  ├─ quiz.phtml
+│  └─ register.phtml
+└─ utils/
+   ├─ functions.php
+   ├─ queries.php
+   └─ tests.php
