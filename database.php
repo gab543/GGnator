@@ -1,18 +1,9 @@
 <?php
 function getConnection(): PDO
 {
-    $host = 'localhost';
-    $dbName = 'ggnator';
-    $username = 'root';
-    $password = 'root';
-
-    $pdo = new PDO(
-        'mysql:host=' . $host . ';port=3306;dbname=' . $dbName . ';charset=utf8',
-        $username,
-        $password
-    );
-
+    $databaseUrl = 'postgresql://postgres:[YOUR-PASSWORD]@db.qsaplxmltitmseqtnvue.supabase.co:5432/postgres';
+    
+    $pdo = new PDO($databaseUrl);
+    
     return $pdo;
 }
-
-// var_dump(getConnection());
