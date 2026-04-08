@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once './utils/functions.php';
-// require_once './utils/auth.php';
+require_once __DIR__ . '/utils/functions.php';
+// require_once __DIR__ . '/utils/auth.php';
 
-$template = './templates/index.phtml';
-include_once './templates/layout.phtml';
+$template = __DIR__ . '/templates/index.phtml';
+include_once __DIR__ . '/templates/layout.phtml';

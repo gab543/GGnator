@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once './utils/functions.php';
-require_once './utils/queries.php';
+require_once __DIR__ . '/utils/functions.php';
+require_once __DIR__ . '/utils/queries.php';
 
 // if (!isConnected()) {
 //     header('Location: login.php');
@@ -49,5 +49,5 @@ if (isset($_POST['answer'], $_POST['question_id'])) {
     }
 }
 
-$template = './templates/quiz.phtml';
-include_once './templates/layout.phtml';
+$template = __DIR__ . '/templates/quiz.phtml';
+include_once __DIR__ . '/templates/layout.phtml';

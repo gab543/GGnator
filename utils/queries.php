@@ -1,6 +1,6 @@
 <?php
 
-require_once './database.php';
+require_once __DIR__ . '/database.php';
 
 // User queries
 function getUserByEmail($email)

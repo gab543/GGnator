@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once './utils/functions.php';
-require_once './utils/tests.php';
-require_once './utils/queries.php';
+require_once __DIR__ . '/utils/functions.php';
+require_once __DIR__ . '/utils/tests.php';
+require_once __DIR__ . '/utils/queries.php';
 
 if (!isConnected()) {
     redirect('login.php');
@@ -56,5 +56,5 @@ try {
     $error = 'Une erreur est survenue lors de la suppression du compte.';
 }
 
-$template = './templates/account.phtml';
-include_once './templates/layout.phtml';
+$template = __DIR__ . '/templates/account.phtml';
+include_once __DIR__ . '/templates/layout.phtml';
